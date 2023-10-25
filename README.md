@@ -1,2 +1,0 @@
-# konstantinlitvin.github.io
-website
