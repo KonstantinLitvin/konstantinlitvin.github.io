@@ -52,7 +52,7 @@ function previewFile()
         /* Pass meta data of file */
         metaData: {
             /* file name */
-            fileName: "resume.pdf"
+            fileName: "resume_v1.0.4.pdf"
         },
     },
     viewerConfig);
