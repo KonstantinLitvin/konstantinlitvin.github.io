@@ -18,7 +18,7 @@ const viewerConfig = {
 
 /* Wait for Adobe Acrobat Services PDF Embed API to be ready and enable the View PDF button */
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
-    document.getElementById("view-pdf-btn").disabled = false;
+    document.getElementById("view-pdf-btn").disabled = true;
 });
 
 
@@ -28,7 +28,7 @@ function previewFile()
     /* Initialize the AdobeDC View object */
     var adobeDCView = new AdobeDC.View({
         /* Pass your registered client id */
-        clientId: "707a2240f15447a38644da28eb115104"
+        clientId: "e1955eb7e1684ee098e1ef8026cefab0"
     });
 
     /* Invoke the file preview API on Adobe DC View object */
