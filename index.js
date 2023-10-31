@@ -18,7 +18,7 @@ const viewerConfig = {
 
 /* Wait for Adobe Acrobat Services PDF Embed API to be ready and enable the View PDF button */
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
-    document.getElementById("view-pdf-btn").disabled = false;
+    document.getElementById("view-pdf-btn").disabled = true;
 });
 
 
