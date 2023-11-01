@@ -12,7 +12,7 @@ written permission of Adobe.
 /* Control the default view mode */
 const viewerConfig = {
     /* Allowed possible values are "FIT_PAGE", "FIT_WIDTH", "TWO_COLUMN", "TWO_COLUMN_FIT_PAGE" or "". */
-    defaultViewMode: "FIT_PAGE",
+    defaultViewMode: "FIT_WIDTH",
     showAnnotationTools: false,
 };
 
@@ -49,5 +49,23 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
             /* file name */
             fileName: "resume.pdf"
         }
-    }, viewerConfig);
-});
+    }, viewerConfig).then(function() {
+            /* Enable the View PDF button */
+            document.getElementById("view-pdf-btn").disabled = false;
+        });
+
+    /* Load all pages */
+    adobeDCView.getAPIs().then(function (apis) {
+        var totalPagesPromise = apis.getTotalPages();
+        totalPagesPromise.then(function (totalPages) {
+            for (var i = 1; i <= totalPages; i++) {
+                adobeDCView.getAPIs().then(function (apis) {
+                    var setPagePromise = apis.setPage(i);
+                    setPagePromise.then(function () {
+                        console.log("Page", i, "loaded");
+                    });
+                });
+            }
+        });
+    });
+};
