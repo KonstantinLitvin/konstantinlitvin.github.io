@@ -54,5 +54,23 @@ function previewFile()
             /* file name */
             fileName: "resume.pdf"
         }
-    }, viewerConfig);
+    }, viewerConfig).then(function() {
+            /* Enable the View PDF button */
+            document.getElementById("view-pdf-btn").disabled = false;
+        });
+
+    /* Load all pages */
+    adobeDCView.getAPIs().then(function (apis) {
+        var totalPagesPromise = apis.getTotalPages();
+        totalPagesPromise.then(function (totalPages) {
+            for (var i = 1; i <= totalPages; i++) {
+                adobeDCView.getAPIs().then(function (apis) {
+                    var setPagePromise = apis.setPage(i);
+                    setPagePromise.then(function () {
+                        console.log("Page", i, "loaded");
+                    });
+                });
+            }
+        });
+    });
 };
