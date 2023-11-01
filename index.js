@@ -12,7 +12,8 @@ written permission of Adobe.
 /* Pass the embed mode option here */
 const viewerConfig = {
     embedMode: "LIGHT_BOX",
-    showAnnotationTools: false
+    showAnnotationTools: false,
+    defaultViewMode: "SINGLE_PAGE"
 };
 /*    defaultViewMode: "TWO_COLUMN",
 
