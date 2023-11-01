@@ -12,9 +12,10 @@ written permission of Adobe.
 /* Pass the embed mode option here */
 const viewerConfig = {
     embedMode: "LIGHT_BOX",
-    defaultViewMode: "TWO_COLUMN",
     showAnnotationTools: false
 };
+/*    defaultViewMode: "TWO_COLUMN",
+
 
 /* Wait for Adobe Acrobat Services PDF Embed API to be ready and enable the View PDF button */
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
