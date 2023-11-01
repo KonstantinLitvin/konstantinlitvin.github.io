@@ -49,23 +49,17 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
             /* file name */
             fileName: "resume.pdf"
         }
-    }, viewerConfig).then(function() {
-            /* Enable the View PDF button */
-            document.getElementById("view-pdf-btn").disabled = false;
-        });
+    }, viewerConfig);
 
-    /* Load all pages */
     adobeDCView.getAPIs().then(function (apis) {
-        var totalPagesPromise = apis.getTotalPages();
-        totalPagesPromise.then(function (totalPages) {
-            for (var i = 1; i <= totalPages; i++) {
-                adobeDCView.getAPIs().then(function (apis) {
-                    var setPagePromise = apis.setPage(i);
-                    setPagePromise.then(function () {
-                        console.log("Page", i, "loaded");
-                    });
-                });
-            }
-        });
+    var totalPagesPromise = apis.getTotalPages();
+    totalPagesPromise.then(function (totalPages) {
+        for (var i = 1; i <= totalPages; i++) {
+            apis.gotoPage(i);
+        }
+    }).catch(function (error) {
+        console.error(error);
     });
-};
+});
+
+});
