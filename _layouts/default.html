@@ -56,16 +56,84 @@
         .download-button:hover {
             background-color: #0056b3;
         }
+
+        .language-selector {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .lang-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .lang-button:hover {
+            background-color: #0056b3;
+        }
+
+        .lang-button.active {
+            background-color: #0056b3;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <button id="lang-en" class="lang-button active">EN</button>
+        <button id="lang-ru" class="lang-button">RU</button>
+    </div>
+
     <div id="loading-indicator">
         <div class="spinner"></div>
         Loading resume...
     </div>
-    <iframe class="pdf-iframe" src="/assets/resume.pdf" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
+    <iframe id="resume-iframe" class="pdf-iframe" src="" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
     <div class="download-section">
-        <a href="/assets/resume.pdf" download="Konstantin_Litvin_Resume.pdf" class="download-button">Download Resume</a>
+        <a id="download-link" href="" download="" class="download-button">Download Resume</a>
     </div>
+
+    <script>
+        const resumePaths = {
+            en: "{{ site.resume_paths.en }}",
+            ru: "{{ site.resume_paths.ru }}"
+        };
+
+        const resumeIframe = document.getElementById('resume-iframe');
+        const downloadLink = document.getElementById('download-link');
+        const langEnButton = document.getElementById('lang-en');
+        const langRuButton = document.getElementById('lang-ru');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        function setLanguage(lang) {
+            loadingIndicator.style.display = 'flex'; // Show loading indicator
+            resumeIframe.src = resumePaths[lang];
+            downloadLink.href = resumePaths[lang];
+            downloadLink.download = `Konstantin_Litvin_Resume_${lang.toUpperCase()}.pdf`;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update active button styling
+            langEnButton.classList.remove('active');
+            langRuButton.classList.remove('active');
+            document.getElementById(`lang-${lang}`).classList.add('active');
+        }
+
+        // Set initial language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(savedLang);
+        });
+
+        // Event listeners for language buttons
+        langEnButton.addEventListener('click', () => setLanguage('en'));
+        langRuButton.addEventListener('click', () => setLanguage('ru'));
+    </script>
 </body>
 </html>
