@@ -87,15 +87,18 @@
 </head>
 <body>
     <div class="language-selector">
-        <button id="lang-en" class="lang-button active">EN</button>
-        <button id="lang-ru" class="lang-button">RU</button>
+        <button id="lang-en" class="lang-button active" aria-label="Switch to English resume">EN</button>
+        <button id="lang-ru" class="lang-button" aria-label="Switch to Russian resume">RU</button>
     </div>
 
     <div id="loading-indicator" style="display: none;">
         <div class="spinner"></div>
         Loading resume...
     </div>
-    <iframe id="resume-iframe" class="pdf-iframe" src="{{ site.resume_paths.en }}" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
+    <div id="error-message" style="display: none; text-align: center; padding: 20px; font-family: sans-serif; color: red;">
+        Failed to load resume. Please try again later.
+    </div>
+    <iframe id="resume-iframe" class="pdf-iframe" src="{{ site.resume_paths.en }}" onload="handleIframeLoad();" onerror="handleIframeError();"></iframe>
     <div class="download-section">
         <a id="download-link" href="" download="" class="download-button">Download Resume</a>
     </div>
@@ -111,29 +114,74 @@
         const langEnButton = document.getElementById('lang-en');
         const langRuButton = document.getElementById('lang-ru');
         const loadingIndicator = document.getElementById('loading-indicator');
+        const errorMessage = document.getElementById('error-message');
 
-        function setLanguage(lang) {
-            loadingIndicator.style.display = 'flex'; // Show loading indicator
+        let loadingTimeout;
+
+        function showLoading() {
+            loadingIndicator.style.display = 'flex';
+            errorMessage.style.display = 'none';
+            clearTimeout(loadingTimeout);
+            loadingTimeout = setTimeout(() => {
+                if (loadingIndicator.style.display === 'flex') {
+                    loadingIndicator.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                }
+            }, 10000); // 10 seconds timeout
+        }
+
+        function hideLoading() {
+            loadingIndicator.style.display = 'none';
+            clearTimeout(loadingTimeout);
+        }
+
+        function handleIframeLoad() {
+            hideLoading();
+        }
+
+        function handleIframeError() {
+            hideLoading();
+            errorMessage.style.display = 'block';
+        }
+
+        function setLanguage(lang, updateHash = true) {
+            showLoading();
             resumeIframe.src = resumePaths[lang];
             downloadLink.href = resumePaths[lang];
             downloadLink.download = `Konstantin_Litvin_Resume_${lang.toUpperCase()}.pdf`;
             localStorage.setItem('preferredLanguage', lang);
 
-            // Update active button styling
             langEnButton.classList.remove('active');
             langRuButton.classList.remove('active');
             document.getElementById(`lang-${lang}`).classList.add('active');
+
+            if (updateHash) {
+                window.location.hash = lang;
+            }
         }
 
-        // Set initial language on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-            setLanguage(savedLang);
+            const hashLang = window.location.hash.substring(1);
+            const savedLang = localStorage.getItem('preferredLanguage');
+
+            let initialLang = 'en';
+            if (hashLang && resumePaths[hashLang]) {
+                initialLang = hashLang;
+            } else if (savedLang && resumePaths[savedLang]) {
+                initialLang = savedLang;
+            }
+            setLanguage(initialLang, false); // Don't update hash on initial load
         });
 
-        // Event listeners for language buttons
         langEnButton.addEventListener('click', () => setLanguage('en'));
         langRuButton.addEventListener('click', () => setLanguage('ru'));
+
+        window.addEventListener('hashchange', () => {
+            const hashLang = window.location.hash.substring(1);
+            if (resumePaths[hashLang]) {
+                setLanguage(hashLang, false);
+            }
+        });
     </script>
 </body>
 </html>
