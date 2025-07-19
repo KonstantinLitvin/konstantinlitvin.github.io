@@ -91,11 +91,11 @@
         <button id="lang-ru" class="lang-button">RU</button>
     </div>
 
-    <div id="loading-indicator">
+    <div id="loading-indicator" style="display: none;">
         <div class="spinner"></div>
         Loading resume...
     </div>
-    <iframe id="resume-iframe" class="pdf-iframe" src="" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
+    <iframe id="resume-iframe" class="pdf-iframe" src="{{ site.resume_paths.en }}" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
     <div class="download-section">
         <a id="download-link" href="" download="" class="download-button">Download Resume</a>
     </div>
