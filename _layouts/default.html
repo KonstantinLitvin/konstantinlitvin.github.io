@@ -83,6 +83,58 @@
             background-color: #0056b3;
             font-weight: bold;
         }
+
+        #error-message {
+            background-color: #ffe0e0;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between buttons */
+            padding: 10px;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none; /* For print button */
+            cursor: pointer; /* For print button */
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .language-selector, .action-buttons {
+                padding: 8px;
+            }
+            .lang-button, .action-button {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+            #loading-indicator, #error-message {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -100,7 +152,10 @@
     </div>
     <iframe id="resume-iframe" class="pdf-iframe" src="{{ site.resume_paths.en }}" onload="handleIframeLoad();" onerror="handleIframeError();"></iframe>
     <div class="download-section">
-        <a id="download-link" href="" download="" class="download-button">Download Resume</a>
+        <div class="action-buttons">
+            <a id="download-link" href="" download="" class="action-button">Download Resume</a>
+            <button class="action-button" onclick="window.print()">Print Resume</button>
+        </div>
     </div>
 
     <script>
