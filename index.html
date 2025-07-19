@@ -11,6 +11,12 @@
     </style>
 </head>
 <body>
-    <iframe class="pdf-iframe" src="/assets/resume.pdf"></iframe>
+    <div id="loading-indicator" style="text-align: center; padding: 20px; font-family: sans-serif;">
+        Loading resume...
+    </div>
+    <iframe class="pdf-iframe" src="/assets/resume.pdf" onload="document.getElementById('loading-indicator').style.display='none';"></iframe>
+    <div style="text-align: center; padding: 10px; font-family: sans-serif;">
+        <a href="/assets/resume.pdf" download="Konstantin_Litvin_Resume.pdf">Download Resume</a>
+    </div>
 </body>
 </html>
