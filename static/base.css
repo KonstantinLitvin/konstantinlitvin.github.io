@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
 
 :root {
     --sidebar-bg-color: #f8f9fa;
@@ -14,7 +14,15 @@ body {
     line-height: 1.6;
 }
 
-
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--main-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding-top: 3rem; /* Added to prevent overlap with language switcher */
+}
 
 h1, h2, h3 {
     color: var(--text-color);
