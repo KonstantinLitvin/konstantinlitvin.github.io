@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
 
 :root {
-    --sidebar-bg-color: #f8f9fa;
+    --sidebar-bg-color: #eff1f4;
     --main-bg-color: #ffffff;
-    --text-color: #333;
-    --link-color: #007bff;
-    --border-color: #dee2e6;
+    --text-color: #343a40;
+    --link-color: #0056b3;
+    --border-color: #e9ecef;
 }
 
 body {
     font-family: 'Roboto', 'Lato', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 1.05em;
 }
 
 .container {
@@ -24,7 +25,18 @@ body {
     padding-top: 3rem; /* Added to prevent overlap with language switcher */
 }
 
-h1, h2, h3 {
+h1 {
+    font-size: 2.5em;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--text-color);
+}
+
+h3 {
+    font-size: 1.5em;
     color: var(--text-color);
 }
 
@@ -80,7 +92,7 @@ a:hover {
     color: #555; /* Slightly darker than main text, but not as prominent as h3 */
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    font-size: 1.1em; /* Slightly smaller than default h4 */
+    font-size: 1.2em; /* Slightly smaller than default h4 */
 }
 
 .sidebar p {
@@ -99,11 +111,11 @@ a:hover {
 }
 
 .skill-tag {
-    background-color: #e9ecef;
+    background-color: #d1d9e0;
     color: #495057;
     padding: 0.4rem 0.8rem;
     border-radius: 1rem;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 .main-content {
