@@ -21,9 +21,9 @@
 }
 
 .skill-tag {
-    background-color: #eee;
-    color: #333;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
     font-size: 0.9em;
 }

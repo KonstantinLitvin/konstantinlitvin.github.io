@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap&subset=cyrillic');
 
 :root {
     --sidebar-bg-color: #f8f9fa;
@@ -14,17 +14,7 @@ body {
     line-height: 1.6;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: var(--main-bg-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+
 
 h1, h2, h3 {
     color: var(--text-color);
@@ -59,6 +49,3 @@ a:hover {
     color: var(--main-bg-color);
 }
 
-.container-fluid {
-    padding-top: 3rem;
-}
