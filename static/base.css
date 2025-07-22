@@ -58,3 +58,7 @@ a:hover {
     background-color: var(--link-color);
     color: var(--main-bg-color);
 }
+
+.container-fluid {
+    padding-top: 3rem;
+}
