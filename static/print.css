@@ -1,0 +1,50 @@
+/* static/print.css */
+
+/* Use high-specificity selectors to override web styles */
+body > .container {
+    display: block !important; /* Force single-column layout */
+    grid-template-columns: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.container > .sidebar, .container > .main-content {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem 0 !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.sidebar {
+    text-align: center !important;
+}
+
+.sidebar h1, .sidebar h2 {
+    margin-bottom: 0.25rem !important;
+}
+
+.sidebar ul {
+    display: inline-block !important;
+    text-align: left !important;
+    margin-top: 1rem !important;
+}
+
+.main-content h2, .main-content h3 {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.25rem;
+    margin-top: 1.5rem;
+}
+
+/* Remove the Pico.css link from the print version */
+head > link[href*="pico"] {
+    display: none !important;
+}
+
+/* Ensure links are still identifiable */
+a {
+    color: #007bff;
+    text-decoration: none;
+}

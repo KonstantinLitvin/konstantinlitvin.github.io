@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --sidebar-bg-color: #f8f9fa;
+    --main-bg-color: #ffffff;
+    --text-color: #333;
+    --link-color: #007bff;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Roboto', 'Lato', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--main-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.language-switcher a {
+    margin: 0 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--link-color);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.language-switcher a.active {
+    background-color: var(--link-color);
+    color: var(--main-bg-color);
+}

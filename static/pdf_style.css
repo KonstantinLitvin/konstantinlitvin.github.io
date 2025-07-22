@@ -1,0 +1,83 @@
+/* static/pdf_style.css */
+
+body {
+    line-height: 1.3;
+    color: #333;
+    margin: 0.2in;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.2em; /* Slightly smaller for PDF */
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 1.3em; /* Slightly smaller for PDF */
+    font-weight: normal;
+    color: #555;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.contact-info li {
+    display: block;
+    margin: 2px 0;
+}
+
+.main-content h2, .main-content h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+    margin-top: 10px;
+}
+
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.tech-stack {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.tech-tag {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 0.15em 0.4em; /* Reduced padding */
+    border-radius: 3px;
+    font-size: 0.75em; /* Reduced font size */
+    margin-right: 0.2em;
+    display: inline-block;
+    margin-bottom: 0.2em;
+}
+
+.main-content h4 {
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+.main-content p {
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 15px;
+}

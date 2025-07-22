@@ -1,0 +1,23 @@
+.main-content {
+    padding: 2rem;
+}
+
+.main-content p {
+    margin-bottom: 0.5em; /* Reduce default paragraph spacing */
+}
+
+.tech-stack {
+    margin-top: 0;
+    margin-bottom: 1em; /* Increased distance to next element */
+}
+
+.tech-tag {
+    background-color: #e0eaf1;
+    color: #3d5a80;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-right: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.3rem;
+}
