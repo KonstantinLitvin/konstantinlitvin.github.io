@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=PT+Sans+Narrow:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 :root {
     --sidebar-bg-color: #eff1f4;
@@ -26,17 +26,17 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.8em; /* Increased for sidebar prominence */
     color: var(--text-color);
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.3em; /* Increased for sidebar prominence */
     color: var(--text-color);
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.6em; /* Increased for sidebar */
     color: var(--text-color);
 }
 
@@ -73,9 +73,11 @@ a:hover {
     background-color: var(--sidebar-bg-color);
     padding: 2rem;
     border-right: 1px solid var(--border-color);
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .sidebar h1, .sidebar h2 {
+    font-family: 'PT Sans Narrow', sans-serif;
     margin-top: 0;
 }
 
@@ -85,14 +87,15 @@ a:hover {
 }
 
 .sidebar ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem; /* Slightly increased spacing */
+    font-size: 1.15em; /* Increased for readability */
 }
 
 .sidebar h4 {
     color: #555; /* Slightly darker than main text, but not as prominent as h3 */
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.2em; /* Slightly smaller than default h4 */
+    margin-top: 1.2rem; /* Slightly increased spacing */
+    margin-bottom: 0.6rem; /* Slightly increased spacing */
+    font-size: 1.4em; /* Increased for readability */
 }
 
 .sidebar p {
@@ -115,7 +118,7 @@ a:hover {
     color: #495057;
     padding: 0.4rem 0.8rem;
     border-radius: 1rem;
-    font-size: 0.85em;
+    font-size: 1em; /* Increased */
 }
 
 .main-content {

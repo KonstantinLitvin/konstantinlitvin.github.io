@@ -1,9 +1,10 @@
 /* static/pdf_style.css */
 
 body {
-    line-height: 1.3;
+    font-family: sans-serif;
+    line-height: 1.4;
+    margin: 0.5in;
     color: #333;
-    margin: 0.2in;
 }
 
 .container {
@@ -11,73 +12,95 @@ body {
     margin: 0 auto;
 }
 
-.header {
-    text-align: center;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+.sidebar {
+    width: 100%; /* Occupy full width on top */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 2.2em; /* Slightly smaller for PDF */
+.main-content {
+    width: 100%;
 }
 
-.header h2 {
-    margin: 0;
-    font-size: 1.3em; /* Slightly smaller for PDF */
-    font-weight: normal;
-    color: #555;
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #222;
 }
 
-.contact-info {
-    list-style: none;
-    padding: 0;
-    margin-top: 5px;
+h1 {
+    font-size: 2em;
 }
 
-.contact-info li {
-    display: block;
-    margin: 2px 0;
+h2 {
+    font-size: 1.5em;
 }
 
-.main-content h2, .main-content h3 {
+h3 {
+    font-size: 1.2em;
     border-bottom: 1px solid #ccc;
     padding-bottom: 3px;
-    margin-top: 10px;
-}
-
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.tech-stack {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-.tech-tag {
-    background-color: #f0f0f0;
-    color: #555;
-    padding: 0.15em 0.4em; /* Reduced padding */
-    border-radius: 3px;
-    font-size: 0.75em; /* Reduced font size */
-    margin-right: 0.2em;
-    display: inline-block;
-    margin-bottom: 0.2em;
-}
-
-.main-content h4 {
-    margin-top: 8px;
-    margin-bottom: 2px;
-}
-
-.main-content p {
     margin-bottom: 10px;
 }
 
+h4 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
 ul {
-    padding-left: 15px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+ul li {
+    margin-bottom: 3px;
+}
+
+.contact-info li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.skills-list, .tech-stack {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.tech-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.experience-projects {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.experience-projects li {
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 5px;
+}
+
+/* Print-specific adjustments */
+@page {
+    size: A4;
+    margin: 0.5in;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
 }
